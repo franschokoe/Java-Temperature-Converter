@@ -12,7 +12,8 @@ public class TemperatureConverter {
         while (programRunner){
             int decisionOutput = JOptionPane.showConfirmDialog(
                     null ,
-                    "Do you want to convert from F to C?\n\nYes to confirm, No to convert from C to F and Cancel to 'exit'" ,
+                    "Do you want to convert from F to C?\n\nYes to confirm, No to convert from C to F " +
+                            "and Cancel to 'exit'" ,
                     "Converter",
                     JOptionPane.YES_NO_CANCEL_OPTION
             );
@@ -34,7 +35,7 @@ public class TemperatureConverter {
                             JOptionPane.INFORMATION_MESSAGE
                     );
                     //for debuging
-                    System.out.println("Hello Yes " + showNewTemp);
+                    //System.out.println("Hello Yes " + showNewTemp);
 
                     break; //breaking out of the while loop
                 }
@@ -45,7 +46,6 @@ public class TemperatureConverter {
                             "Errro",
                             JOptionPane.ERROR_MESSAGE);
                 }
-
             }
             else if(JOptionPane.NO_OPTION == decisionOutput){
                 //formating the string to double
@@ -62,7 +62,8 @@ public class TemperatureConverter {
                             "Results",
                             JOptionPane.INFORMATION_MESSAGE
                     );
-                    System.out.println("Hello No " + showNewTemp);
+                    //debuging
+                    //System.out.println("Hello No " + showNewTemp);
                     break;
                 }
                 catch (NumberFormatException e){
@@ -78,14 +79,18 @@ public class TemperatureConverter {
             else if(JOptionPane.CANCEL_OPTION == decisionOutput){
                 JOptionPane.showMessageDialog(
                         null,
-                        "Thank for using our Temperatures Converter.\n\nBye"
+                        "Thank for using our Temperatures Converter.\n\nBye",
+                        "Closing Program",
+                        JOptionPane.INFORMATION_MESSAGE
                 );
                 break;
             }
             else{
                 JOptionPane.showMessageDialog(
                         null,
-                        "Error Occured Please try again.");
+                        "Error Occured Please try again.",
+                        "404",
+                        JOptionPane.ERROR);
                 break;
             }
         }
