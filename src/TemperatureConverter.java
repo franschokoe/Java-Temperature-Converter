@@ -52,7 +52,16 @@ public class TemperatureConverter {
                         "Enter temperature in Celsius"
                 ));
                 try{
-
+                    //converting to Fahrenheit
+                    double showNewTemp = (celsius_to_fahrenheit*userTemp) + 32;
+                    JOptionPane.showMessageDialog(
+                            null,
+                            String.format("The Temperature in Celsius is: %.2f C" , showNewTemp),
+                            "Results",
+                            JOptionPane.INFORMATION_MESSAGE
+                    );
+                    System.out.println("Hello No " + showNewTemp);
+                    break;
                 }
                 catch (NumberFormatException e){
                     JOptionPane.showMessageDialog(
@@ -62,16 +71,7 @@ public class TemperatureConverter {
                             JOptionPane.ERROR_MESSAGE
                     );
                 }
-//              //converting to Fahrenheit
-                double showNewTemp = (celsius_to_fahrenheit*userTemp) + 32;
-                JOptionPane.showMessageDialog(
-                        null,
-                        String.format("The Temperature in Celsius is: %.2f C" , showNewTemp),
-                        "Results",
-                        JOptionPane.INFORMATION_MESSAGE
-                );
-                System.out.println("Hello No " + showNewTemp);
-                break;
+
             }
             else if(JOptionPane.CANCEL_OPTION == decisionOutput){
                 JOptionPane.showMessageDialog(
