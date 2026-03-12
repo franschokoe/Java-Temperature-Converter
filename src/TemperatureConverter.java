@@ -5,6 +5,7 @@ public class TemperatureConverter {
         //declaring variables
         final double celsius_to_fahrenheit = (double)9/5;
         final double fahrenheit_to_celsius = (double)5/9;
+
         boolean programRunner = true;
 
         //initiallizing the while loop
@@ -24,19 +25,27 @@ public class TemperatureConverter {
                         null,
                         "Enter your temperature in Fahrenheit:"
                         ));
+                // converting to celsius
+                double showNewTemp =  fahrenheit_to_celsius*(userTemp - 32);
+                JOptionPane.showMessageDialog(
+                        null ,
+                        "The Temperature in Celsius is: " + showNewTemp
+                );
+                System.out.println("Hello Yes " + showNewTemp);
 
-                System.out.println("Hello Yes" + userTemp);
-
-                programRunner = false;
+                break;
             }
-            else if (JOptionPane.NO_OPTION == No) {
-                double userTemp = Double.parseDouble(JOptionPane.showInputDialog(
-                        null,
-                        "Enter your temperature in Celsius:"
-
-                ));
-                System.out.println("Hello No..");
-            }
+//            else if (JOptionPane.NO_OPTION == No) {
+//                double userTemp = Double.parseDouble(JOptionPane.showInputDialog(
+//                        null,
+//                        "Enter your temperature in Celsius:"
+//                ));
+//                System.out.println("Hello No.." + userTemp);
+//            }
+//            else{
+//
+//                break;
+//            }
         }
 
     }
