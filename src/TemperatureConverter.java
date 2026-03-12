@@ -23,6 +23,7 @@ public class TemperatureConverter {
                         null,
                         "Enter temperature in Fahrenheit:"
                         ));
+                //managing error handling
                 try{
                     // converting to celsius and formarting the results to 2 decimal
                     double showNewTemp =  fahrenheit_to_celsius*(userTemp - 32);
@@ -32,9 +33,10 @@ public class TemperatureConverter {
                             "Results",
                             JOptionPane.INFORMATION_MESSAGE
                     );
+                    //for debuging
                     System.out.println("Hello Yes " + showNewTemp);
 
-                    break;
+                    break; //breaking out of the while loop
                 }
                 catch ( NumberFormatException e) {
                     JOptionPane.showMessageDialog(
