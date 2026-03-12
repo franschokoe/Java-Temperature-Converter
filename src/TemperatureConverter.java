@@ -12,7 +12,7 @@ public class TemperatureConverter {
         while (programRunner){
             int decisionOutput = JOptionPane.showConfirmDialog(
                     null ,
-                    "Do you want to convert from F to C?\nYes to confirm, No to convert from C to F and Cancel to 'exit'" ,
+                    "Do you want to convert from F to C?\n\nYes to confirm, No to convert from C to F and Cancel to 'exit'" ,
                     "Converter",
                     JOptionPane.YES_NO_CANCEL_OPTION
             );
@@ -29,7 +29,7 @@ public class TemperatureConverter {
                 double showNewTemp =  fahrenheit_to_celsius*(userTemp - 32);
                 JOptionPane.showMessageDialog(
                         null ,
-                        "The Temperature in Celsius is: " + showNewTemp
+                        "The Temperature in Celsius is: " + showNewTemp + " celsius."
                 );
                 System.out.println("Hello Yes " + showNewTemp);
 
