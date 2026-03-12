@@ -18,17 +18,19 @@ public class TemperatureConverter {
             );
             //Selection
             if(JOptionPane.YES_OPTION == decisionOutput){
-
+                //formating the string to double
                 double userTemp = Double.parseDouble(JOptionPane.showInputDialog(
                         null,
                         "Enter temperature in Fahrenheit:"
                         ));
                 try{
-                    // converting to celsius
+                    // converting to celsius and formarting the results to 2 decimal
                     double showNewTemp =  fahrenheit_to_celsius*(userTemp - 32);
                     JOptionPane.showMessageDialog(
                             null,
-                            String.format("The Temperature in Celsius is: %.2f"),
+                            String.format("The Temperature in Celsius is: %.2f C" , userTemp),
+                            "Results",
+                            JOptionPane.INFORMATION_MESSAGE
                     );
                     System.out.println("Hello Yes " + showNewTemp);
 
@@ -44,15 +46,29 @@ public class TemperatureConverter {
 
             }
             else if(JOptionPane.NO_OPTION == decisionOutput){
+                //formating the string to double
                 double userTemp = Double.parseDouble(JOptionPane.showInputDialog(
                         null,
                         "Enter temperature in Celsius"
                 ));
+                try{
+
+                }
+                catch (NumberFormatException e){
+                    JOptionPane.showMessageDialog(
+                            null,
+                            "Please enter correct charecters",
+                            "Error",
+                            JOptionPane.ERROR_MESSAGE
+                    );
+                }
 //              //converting to Fahrenheit
                 double showNewTemp = (celsius_to_fahrenheit*userTemp) + 32;
                 JOptionPane.showMessageDialog(
                         null,
-                        "The Temperature in Fahrenheit is: " + showNewTemp + " F  ."
+                        String.format("The Temperature in Celsius is: %.2f C" , showNewTemp),
+                        "Results",
+                        JOptionPane.INFORMATION_MESSAGE
                 );
                 System.out.println("Hello No " + showNewTemp);
                 break;
