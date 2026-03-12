@@ -23,29 +23,32 @@ public class TemperatureConverter {
             if(JOptionPane.YES_OPTION == Yes){
                 double userTemp = Double.parseDouble(JOptionPane.showInputDialog(
                         null,
-                        "Enter your temperature in Fahrenheit:"
+                        "Enter temperature in Fahrenheit:"
                         ));
                 // converting to celsius
                 double showNewTemp =  fahrenheit_to_celsius*(userTemp - 32);
                 JOptionPane.showMessageDialog(
                         null ,
-                        "The Temperature in Celsius is: " + showNewTemp + " celsius."
+                        "The Temperature in Celsius is: " + showNewTemp + " °C"
                 );
                 System.out.println("Hello Yes " + showNewTemp);
 
                 break;
             }
-//            else if (JOptionPane.NO_OPTION == No) {
-//                double userTemp = Double.parseDouble(JOptionPane.showInputDialog(
-//                        null,
-//                        "Enter your temperature in Celsius:"
-//                ));
-//                System.out.println("Hello No.." + userTemp);
-//            }
-//            else{
-//
-//                break;
-//            }
+            if(JOptionPane.NO_OPTION == No){
+                double userTemp = Double.parseDouble(JOptionPane.showInputDialog(
+                        null,
+                        "Enter temperature in Celsius"
+                ));
+//              //converting to Fahrenheit
+                double showNewTemp = (celsius_to_fahrenheit*userTemp) + 32;
+                JOptionPane.showMessageDialog(
+                        null,
+                        "The Temperature in Fahrenheit is:" + showNewTemp + "F"
+                );
+                System.out.println("Hello No " + showNewTemp);
+                break;
+            }
         }
 
     }
