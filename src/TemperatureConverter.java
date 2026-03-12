@@ -1,7 +1,7 @@
 import javax.swing.*;
 
 public class TemperatureConverter {
-    public static void main(String[] args){
+    public static <err> void main(String[] args){
         //declaring variables
         final double celsius_to_fahrenheit = (double)9/5;
         final double fahrenheit_to_celsius = (double)5/9;
@@ -16,26 +16,34 @@ public class TemperatureConverter {
                     "Converter",
                     JOptionPane.YES_NO_CANCEL_OPTION
             );
-            int Yes = JOptionPane.YES_OPTION;
-            int No = JOptionPane.NO_OPTION;
-
             //Selection
-            if(JOptionPane.YES_OPTION == Yes){
+            if(JOptionPane.YES_OPTION == decisionOutput){
+
                 double userTemp = Double.parseDouble(JOptionPane.showInputDialog(
                         null,
                         "Enter temperature in Fahrenheit:"
                         ));
-                // converting to celsius
-                double showNewTemp =  fahrenheit_to_celsius*(userTemp - 32);
-                JOptionPane.showMessageDialog(
-                        null ,
-                        "The Temperature in Celsius is: " + showNewTemp + " °C"
-                );
-                System.out.println("Hello Yes " + showNewTemp);
+                try{
+                    // converting to celsius
+                    double showNewTemp =  fahrenheit_to_celsius*(userTemp - 32);
+                    JOptionPane.showMessageDialog(
+                            null,
+                            String.format("The Temperature in Celsius is: %.2f"),
+                    );
+                    System.out.println("Hello Yes " + showNewTemp);
 
-                break;
+                    break;
+                }
+                catch ( NumberFormatException e) {
+                    JOptionPane.showMessageDialog(
+                            null ,
+                            "Please enter only numbers",
+                            "Errro",
+                            JOptionPane.ERROR_MESSAGE);
+                }
+
             }
-            if(JOptionPane.NO_OPTION == No){
+            else if(JOptionPane.NO_OPTION == decisionOutput){
                 double userTemp = Double.parseDouble(JOptionPane.showInputDialog(
                         null,
                         "Enter temperature in Celsius"
@@ -44,9 +52,22 @@ public class TemperatureConverter {
                 double showNewTemp = (celsius_to_fahrenheit*userTemp) + 32;
                 JOptionPane.showMessageDialog(
                         null,
-                        "The Temperature in Fahrenheit is:" + showNewTemp + "F"
+                        "The Temperature in Fahrenheit is: " + showNewTemp + " F  ."
                 );
                 System.out.println("Hello No " + showNewTemp);
+                break;
+            }
+            else if(JOptionPane.CANCEL_OPTION == decisionOutput){
+                JOptionPane.showMessageDialog(
+                        null,
+                        "Thank for using our Temperatures Converter.\n\nBye"
+                );
+                break;
+            }
+            else{
+                JOptionPane.showMessageDialog(
+                        null,
+                        "Error Occured Please try again.");
                 break;
             }
         }
